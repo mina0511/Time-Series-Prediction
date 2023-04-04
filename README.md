@@ -1,4 +1,6 @@
 # Time-Series-Prediction
+Our AttLSTNet uses the input attention structure of DA-RNN and the Skip-RNN structure of LSTNet. If there is a missing value among the data, the goal of this study is to create a model that predicts by focusing on data other than the missing value. Therefore, an input attention structure was used for him. First, we use Input Attention to select which data to focus on, and then apply Temporary CNN. In this case, the Temporary CNN is applied to the concentrated data in addition to the missing values. In other words, it is possible to learn a temporary pattern while avoiding learning about missing values. The results of Temporary CNNs are learned in parallel by Skip-RNN and Temporary Linear. Thereafter, each result is concatenated, and the results are synthesized with a feature-wise linear.
 
+The architecture of the model is as follows.
 <img width="1191" alt="스크린샷 2023-04-04 오후 1 34 53" src="https://user-images.githubusercontent.com/71031495/229688069-dcec3232-e0ca-453c-8baa-d84c1b4fb1ac.png">
 <img width="1080" alt="스크린샷 2023-04-04 오후 1 34 58" src="https://user-images.githubusercontent.com/71031495/229688083-7d107f0c-52a6-4c40-9581-c5c0d69b3bd2.png">
